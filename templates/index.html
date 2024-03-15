@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+
+    <body>
+        <p>
+            Blender is a website that allows you to talk to other users with the prospect of dating.
+        </p>
+    </body>
+    <nav>
+        <a href="{{ url_for('register')}}" id="register">
+            Register
+        </a>
+        <br>
+        <a href="{{ url_for('login')}}" id ="login">
+            Login
+        </a>
+    </nav>
+
+
+{% endblock %}

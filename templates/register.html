@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+    <header>
+        <h1> Register </h1>
+    </header>
+    
+     <form action ="" method="POST" novalidate>
+        {{ form.hidden_tag() }}
+        {{ form.userid.label }}
+        {{ form.userid() }}
+        {% for error in form.userid.errors %}
+            {{ error }}
+        {% endfor %}
+        <br />
+        {{ form.hidden_tag() }}
+        {{ form.first_name.label }}
+        {{ form.first_name() }}
+        {% for error in form.first_name.errors %}
+            {{ error }}
+        {% endfor %}
+        <br />
+        {{ form.hidden_tag() }}
+        {{ form.last_name.label }}
+        {{ form.last_name() }}
+        {% for error in form.last_name.errors %}
+            {{ error }}
+        {% endfor %} 
+        <br />
+        {{ form.hidden_tag() }}
+        {{ form.age.label }}
+        {{ form.age() }}
+        {% for error in form.age.errors %}
+            {{ error }}
+        {% endfor %}
+        <br />
+        <div class="gender-section">
+        {{ form.hidden_tag() }}
+        {{ form.gender.label }}
+        {{ form.gender() }}
+        {% for error in form.gender.errors %}
+            {{ error }}
+        {% endfor %} 
+        </div>
+        <br />
+        {{ form.password.label }}
+        {{ form.password() }}
+        {% for error in form.password.errors %}
+            {{ error }}
+        {% endfor %}
+        <br />
+        {{ form.password2.label }}
+        {{ form.password2() }}
+        {% for error in form.password2.errors %}
+            {{ error }}
+        {% endfor %}
+        <br />
+        {{ form.submit() }}
+     </form>
+    </div>
+    
+
+{% endblock %}

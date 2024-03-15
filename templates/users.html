@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+
+    <h1>Registered users</h1>
+    <table>
+        <tr>
+            <td><b>Username<b></td>
+            <td><b>Name<b></td>
+            <td><b>DOB</b></td>
+            <td><b>Gender</b></td>
+        </tr>
+        {% for user in users %}
+            <tr>
+                <td>{{ user["user_id"] }} </td>
+                <td>{{ user["first_name"] }} </td>
+                <td>{{ user["age"] }} </td>
+                <td>{{ user["gender"] }} </td>
+                <td><a href="{{ url_for('profile', user_id=user['user_id']) }}">
+                    Visit profile
+                </a></td>
+        {% endfor %}
+            </tr>
+    </table>
+
+{% endblock %}

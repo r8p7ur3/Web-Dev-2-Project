@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+<!-- this is probably a really stupid way of going about this, ill see if
+its somewhat acceptable when it's on the server-->
+
+<!-- i thought 30s would be good as that gives users 
+enough time to send message before page reloads-->
+
+
+<script>
+setTimeout(function () { location.reload(1); }, 60000);
+</script>
+
+<!-- just realised i could probably do this for every post request
+rather than the retarded shit i was doing above-->
+
+<!-- come back to realisation that i cannot do that, ngl flask isn't really 
+amazing for real-time functionality. so im going to stick to a 1 minute refresh
+for just this template. 
+
+There is a library called flask-socketio but i don't want to touch any
+libraries you haven't mentioned we can use, it would have probably just
+been better it i asked in person but.... yeah..... -->
+
+<header>
+    <h1>Chatroom</h1>
+</header>
+
+<table>
+        <tr>
+            <td>Time Sent</td>
+            <td>Username</td>
+            <td>Message</td>
+        </tr>
+    {% for msg in msgs %}
+        <tr>
+            <td>{{ msg["timesent"] }}</td>
+            <td>{{ msg["sender_id"] }}</td>
+            <td>{{ msg["message"] }}</td>
+        </tr>
+    {% endfor %}
+</table>
+
+<form action="" method="POST" novalidate>
+    {{ form.hidden_tag() }}
+    {{ form.message.label }}
+    {{ form.message() }}
+    {% for error in form.message.errors %}
+        {{ error }}
+    {% endfor %}
+    <br />
+    {{ form.submit() }}
+</form> 
+
+
+
+{% endblock %}

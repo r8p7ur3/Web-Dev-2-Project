@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Blender</title>
+        <link rel="icon" type="image/x-icon" href="../static/images/favicon.ico">
+        <link rel = "stylesheet" href = "{{ url_for('static', filename = 'styles.css') }}" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
+    </head>
+    <body>
+        <header>
+            <h1> {{ header }}</h1>
+        </header>
+            {% block dashboard_content %}
+
+        <nav>
+            <title>You are logged in as {{ user }} !</title>
+            <a href="{{ url_for('landing')}}"> Dashboard </a><br>
+            <a href="{{ url_for('logout')}}">Logout</a>
+        </nav>
+            {% endblock %}
+
+            {% block main_content %}
+
+
+
+            {% endblock %}
+
+        <footer>
+            <p>
+                Jonathan Namanda(Sirius), UCC 
+                <a href="mailto:123502566@umail.ucc.ie">123502566@umail.ucc.ie</a>
+                Background:
+                <a href="https://www.vecteezy.com/free-vector">Wallpaper by Vecteezy</a>
+            </p>  
+        </footer>
+    </body>
+
+</html>
